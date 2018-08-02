@@ -1,6 +1,7 @@
 package com.example.android.miwok;
 
 import android.content.Context;
+import android.media.MediaRecorder;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,14 +51,14 @@ public class WordAdapter extends ArrayAdapter<Word>  {
 
         // Get the Miwok translation from the currentWord object and set this text on
         // the Miwok TextView.
-        miwokTextView.setText(currentWord.getMiwokTranslation());
+        miwokTextView.setText(currentWord.getmiwokTranslationId());
 
         // Find the TextView in the list_item.xml layout with the ID default_text_view.
         TextView defaultTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
 
         // Get the default translation from the currentWord object and set this text on
         // the default TextView.
-        defaultTextView.setText(currentWord.getDefaultTranslation());
+        defaultTextView.setText(currentWord.getdefaultTranslationId());
 
         // Find the ImageView in the list_item.xml layout with the ID image.
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
@@ -75,6 +76,11 @@ public class WordAdapter extends ArrayAdapter<Word>  {
             imageView.setVisibility(View.GONE);
         }
 
+        //Find the raw resource ID for the current Word object
+
+
+        //Assign the resource ID
+
         //Set the theme color for the list item.
         View textContainer = listItemView.findViewById(R.id.text_container);
         //Find the color that the resource ID maps to.
@@ -82,10 +88,8 @@ public class WordAdapter extends ArrayAdapter<Word>  {
         //Set the background color of the text container View.
         textContainer.setBackgroundColor(color);
 
-
         // Return the whole list item layout (containing 2 TextViews) so that it can be shown in
         // the ListView.
         return listItemView;
-
     }
 }
